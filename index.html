@@ -36,7 +36,7 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav__brand { display: flex; align-items: center; }
-    .nav__brand img { height: 44px; width: auto; }
+    .nav__brand img { height: 56px; width: auto; }
     .nav__links { display: flex; gap: 28px; font-size: 14px; }
     .nav__links a { color: var(--text); text-decoration: none; font-weight: 500; transition: color 0.2s; }
     .nav__links a:hover { color: var(--coral); }
@@ -270,13 +270,11 @@
 
     /* ── FOOTER ── */
     .rodape {
-      background: var(--black); color: white;
-      padding: 32px; text-align: center; font-size: 13px;
-      letter-spacing: 0.04em;
+      background: white; color: var(--text);
+      padding: 48px 32px; text-align: center;
+      border-top: 1px solid var(--line);
     }
-    .rodape img { height: 40px; margin: 0 auto 12px; opacity: 0.9; }
-    .rodape__brand { font-weight: 700; letter-spacing: 0.16em; }
-    .rodape__brand span { font-weight: 300; opacity: 0.6; }
+    .rodape img { height: 96px; margin: 0 auto; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -307,7 +305,7 @@
 
   <nav class="nav">
     <a class="nav__brand" href="#top">
-      <img src="img/logo/convocacao.png" alt="Convocação">
+      <img src="img/logo/convocacao-horizontal.png" alt="Convocação">
     </a>
     <div class="nav__links">
       <a href="#sobre">Sobre</a>
@@ -521,8 +519,7 @@
 
   <!-- ── FOOTER ── -->
   <footer class="rodape">
-    <img src="img/logo/convocacao.png" alt="Convocação">
-    <p class="rodape__brand">CONVOCAÇÃO <span>· projetos missionais</span></p>
+    <img src="img/logo/convocacao-mark.png" alt="Convocação">
   </footer>
 
 </body>
