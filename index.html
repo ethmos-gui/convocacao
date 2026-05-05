@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convocação — projetos missionais</title>
+  <meta name="description" content="Agência de comunicação que ajuda você a planejar e executar projetos que aliam comunicação e propósito.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #FFFFFF;
+      --paper:     #FAF9F6;
+      --text:      #1A1A1A;
+      --muted:     #6B6B6B;
+      --line:      #E5E5E5;
+      --coral:     #FF5C3D;
+      --coral-dark:#E04528;
+      --black:     #000000;
+    }
+
+    html { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-size: 17px; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; }
+    .nav__brand img { height: 32px; }
+    .nav__links { display: flex; gap: 28px; font-size: 14px; }
+    .nav__links a { color: var(--text); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav__links a:hover { color: var(--coral); }
+    .nav__cta {
+      background: var(--coral); color: white; padding: 8px 16px;
+      text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: background 0.2s; border-radius: 2px;
+    }
+    .nav__cta:hover { background: var(--coral-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 1280px; margin: 0 auto;
+      padding: 80px 32px 100px;
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px;
+      align-items: center;
+    }
+    .hero__eyebrow {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.32em;
+      text-transform: lowercase; color: var(--coral); margin-bottom: 24px;
+    }
+    .hero__subtitle {
+      font-size: 22px; color: var(--coral); font-weight: 400;
+      line-height: 1.4; margin-bottom: 32px; max-width: 480px;
+    }
+    .hero__title {
+      font-size: 88px; font-weight: 800; line-height: 1.0;
+      letter-spacing: -0.025em; margin-bottom: 40px; color: var(--black);
+    }
+    .hero__title em { font-style: normal; position: relative; }
+    .hero__title em::before {
+      content: ''; position: absolute; left: -2px; right: -2px;
+      bottom: -4px; height: 8px; background: var(--coral);
+      z-index: -1; opacity: 0.85;
+    }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero__cta {
+      display: inline-block; padding: 12px 22px;
+      border: 1.5px solid var(--text); color: var(--text);
+      text-decoration: none; font-weight: 500; font-size: 14px;
+      letter-spacing: 0.02em; border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero__cta:hover { background: var(--text); color: white; }
+    .hero__cta--primary {
+      background: var(--coral); border-color: var(--coral); color: white;
+    }
+    .hero__cta--primary:hover { background: var(--coral-dark); border-color: var(--coral-dark); color: white; }
+
+    .hero__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hero__photo { aspect-ratio: 3/4; overflow: hidden; }
+    .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 100px 32px; max-width: 1280px; margin: 0 auto; }
+    .section__eyebrow {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--coral);
+      margin-bottom: 16px; display: flex; align-items: center; gap: 16px;
+    }
+    .section__eyebrow::after {
+      content: ''; flex: 1; height: 1px; background: var(--line);
+    }
+    .section__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 52px; font-weight: 500; line-height: 1.1;
+      color: var(--black); margin-bottom: 32px; letter-spacing: -0.01em;
+    }
+    .section__lead {
+      font-size: 19px; color: var(--text); max-width: 720px;
+      line-height: 1.6; margin-bottom: 56px;
+    }
+
+    /* ── SOBRE ── */
+    .sobre__hero { aspect-ratio: 16/9; overflow: hidden; margin-bottom: 60px; }
+    .sobre__hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .sobre__people { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 80px; }
+    .pessoa__nome {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 12px;
+    }
+    .pessoa__redes { display: inline-flex; gap: 8px; font-size: 11px; color: var(--muted); }
+    .pessoa__lista { list-style: none; }
+    .pessoa__lista li {
+      padding: 6px 0; font-size: 15px;
+      padding-left: 16px; position: relative; color: var(--text);
+    }
+    .pessoa__lista li::before {
+      content: '·'; position: absolute; left: 0; color: var(--coral);
+      font-weight: 700;
+    }
+
+    .sobre__valores { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: center; }
+    .sobre__valores img { aspect-ratio: 1/1; object-fit: cover; }
+    .sobre__valores p { font-size: 18px; line-height: 1.65; color: var(--text); margin-bottom: 16px; }
+
+    /* ── CADEIA ── */
+    .cadeia { background: var(--paper); max-width: none; }
+    .cadeia__inner { max-width: 1280px; margin: 0 auto; }
+    .cadeia__diagram {
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 24px;
+      margin: 56px 0;
+    }
+    .fase {
+      background: white; padding: 28px 24px; border: 1px solid var(--line);
+      position: relative;
+    }
+    .fase__num {
+      font-family: 'Cormorant Garamond', serif; font-size: 14px;
+      color: var(--coral); font-weight: 600; letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+    .fase__nome {
+      font-family: 'Cormorant Garamond', serif; font-size: 24px;
+      font-weight: 600; color: var(--black); margin-bottom: 12px;
+    }
+    .fase__desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+    .cadeia__cta { text-align: center; margin-top: 40px; }
+    .cadeia__cta a {
+      display: inline-block; background: var(--coral); color: white;
+      padding: 16px 32px; text-decoration: none; font-weight: 600;
+      font-size: 15px; letter-spacing: 0.02em; border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .cadeia__cta a:hover { background: var(--coral-dark); }
+
+    /* ── SIMULADOR teaser ── */
+    .sim-teaser {
+      background: var(--black); color: white;
+      padding: 80px 32px; max-width: none;
+    }
+    .sim-teaser__inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px;
+      align-items: center;
+    }
+    .sim-teaser__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px; font-weight: 500; line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .sim-teaser__title span { color: var(--coral); }
+    .sim-teaser__desc { font-size: 17px; opacity: 0.85; line-height: 1.6; margin-bottom: 32px; }
+    .sim-teaser__cta {
+      display: inline-block; background: var(--coral); color: white;
+      padding: 16px 28px; text-decoration: none; font-weight: 600;
+      font-size: 15px; border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .sim-teaser__cta:hover { background: var(--coral-dark); }
+    .sim-teaser__visual {
+      background: white; padding: 24px; border-radius: 4px;
+      color: var(--text); display: flex; flex-direction: column; gap: 12px;
+    }
+    .sim-teaser__visual h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600;
+    }
+    .sim-teaser__line {
+      display: flex; justify-content: space-between;
+      padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 14px;
+    }
+    .sim-teaser__line:last-child { border: none; font-weight: 700; padding-top: 14px; border-top: 2px solid var(--black); margin-top: 8px; }
+
+    /* ── PORTFOLIO EDITORIAL ── */
+    .editorial-cat { margin-bottom: 64px; }
+    .editorial-cat__titulo {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--coral);
+      margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+    }
+    .editorial-cat__titulo span { color: var(--muted); margin-left: 12px; font-weight: 400; letter-spacing: 0.02em; text-transform: none; }
+    .editorial-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 28px;
+    }
+    .capa {
+      aspect-ratio: 2/3; overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .capa:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.14); }
+    .capa img { width: 100%; height: 100%; object-fit: contain; background: white; }
+
+    /* ── PORTFOLIO COMUNICAÇÃO ── */
+    .comunicacao-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .projeto-card {
+      background: var(--paper); border: 1px solid var(--line);
+      overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .projeto-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .projeto-card img { width: 100%; display: block; }
+
+    /* ── CONTATO ── */
+    .contato { background: var(--coral); max-width: none; color: white; padding: 100px 32px; }
+    .contato__inner { max-width: 1280px; margin: 0 auto; }
+    .contato__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px; font-weight: 600; line-height: 1.0;
+      margin-bottom: 16px;
+    }
+    .contato__lead {
+      font-size: 22px; max-width: 560px; opacity: 0.95;
+      line-height: 1.5; margin-bottom: 64px;
+    }
+    .contato__grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 60px; align-items: end;
+    }
+    .contato__item__label {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; opacity: 0.8; margin-bottom: 8px;
+    }
+    .contato__item__value { font-size: 18px; }
+    .contato__item__value a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.5); padding-bottom: 2px; }
+    .contato__item__value a:hover { border-color: white; }
+    .contato__cta {
+      display: inline-block; background: white; color: var(--coral);
+      padding: 16px 28px; text-decoration: none; font-weight: 600;
+      font-size: 15px; border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .contato__cta:hover { background: var(--black); color: white; }
+
+    /* ── FOOTER ── */
+    .rodape {
+      background: var(--black); color: white;
+      padding: 32px; text-align: center; font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+    .rodape img { height: 40px; margin: 0 auto 12px; opacity: 0.9; }
+    .rodape__brand { font-weight: 700; letter-spacing: 0.16em; }
+    .rodape__brand span { font-weight: 300; opacity: 0.6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav { padding: 12px 20px; flex-wrap: wrap; gap: 12px; }
+      .nav__links { gap: 14px; font-size: 13px; flex-wrap: wrap; justify-content: center; }
+      .hero { grid-template-columns: 1fr; padding: 48px 24px 64px; gap: 40px; }
+      .hero__title { font-size: 56px; }
+      .hero__subtitle { font-size: 19px; }
+      section { padding: 64px 24px; }
+      .section__title { font-size: 38px; }
+      .sobre__people, .sobre__valores, .sim-teaser__inner, .contato__grid {
+        grid-template-columns: 1fr; gap: 32px;
+      }
+      .cadeia__diagram { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .contato__title { font-size: 56px; }
+      .sim-teaser__title { font-size: 32px; }
+    }
+    @media (max-width: 540px) {
+      .nav__links { display: none; }
+      .hero__title { font-size: 44px; }
+      .cadeia__diagram { grid-template-columns: 1fr; }
+      .editorial-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .contato__title { font-size: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav__brand" href="#top">
+      <img src="img/logo/convocacao.png" alt="Convocação">
+      Convocação
+    </a>
+    <div class="nav__links">
+      <a href="#sobre">Sobre</a>
+      <a href="#cadeia">Serviço editorial</a>
+      <a href="#editorial">Portfólio editorial</a>
+      <a href="#comunicacao">Comunicação</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a class="nav__cta" href="https://ethmos-gui.github.io/contemplatio-simulador/" target="_blank" rel="noopener">Simular pacote</a>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header class="hero" id="top">
+    <div>
+      <p class="hero__eyebrow">portfólio de comunicação</p>
+      <p class="hero__subtitle">Ajudamos você a planejar e executar projetos que aliam comunicação e propósito.</p>
+      <h1 class="hero__title"><em>Sua</em> vocação<br>é <em>nossa</em>.</h1>
+      <div class="hero__ctas">
+        <a class="hero__cta hero__cta--primary" href="#cadeia">Serviço editorial</a>
+        <a class="hero__cta" href="#editorial">Portfólio editorial</a>
+        <a class="hero__cta" href="#comunicacao">Portfólio de comunicação</a>
+      </div>
+    </div>
+    <div class="hero__photos">
+      <div class="hero__photo"><img src="img/hero/guilherme.jpeg" alt="Guilherme Ribeiro"></div>
+      <div class="hero__photo"><img src="img/hero/thais.jpeg" alt="Thais Romano"></div>
+    </div>
+  </header>
+
+  <!-- ── SOBRE ── -->
+  <section id="sobre">
+    <p class="section__eyebrow">Sobre nós</p>
+    <h2 class="section__title">Mais do que uma agência de comunicação.</h2>
+    <div class="sobre__hero">
+      <img src="img/sobre/duo.jpeg" alt="Guilherme e Thais">
+    </div>
+    <div class="sobre__people">
+      <div>
+        <p class="pessoa__nome">Guilherme Ribeiro <span class="pessoa__redes">in · ig</span></p>
+        <ul class="pessoa__lista">
+          <li>Doutor em Ministério (George Fox)</li>
+          <li>Especialista em Semiótica (PUC-SP)</li>
+          <li>Publicitário (ESPM-SP)</li>
+          <li>Autor, tradutor e ghostwriter</li>
+          <li>Editor de livros</li>
+          <li>Designer gráfico e web</li>
+        </ul>
+      </div>
+      <div>
+        <p class="pessoa__nome">Thais Romano <span class="pessoa__redes">in · ig</span></p>
+        <ul class="pessoa__lista">
+          <li>Jornalista (Metodista-SP)</li>
+          <li>Empreendedora Social</li>
+          <li>Ativista em 3º Setor</li>
+          <li>Autora e revisora</li>
+          <li>Gestão de eventos e projetos</li>
+          <li>Designer gráfico e web</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sobre__valores">
+      <img src="img/sobre/yanomami.jpeg" alt="Como trabalhamos">
+      <div>
+        <p class="section__eyebrow" style="margin-bottom: 12px">Como trabalhamos</p>
+        <p>Nos dedicamos a criar e executar projetos que ressoam com nossos valores.</p>
+        <p>Acreditamos que o trabalho bem feito, que glorifica a Deus, é feito com tempo, qualidade, soluções simples e criativas, dando resultado sustentável no longo prazo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CADEIA DO LIVRO ── -->
+  <section class="cadeia" id="cadeia">
+    <div class="cadeia__inner" style="padding: 100px 32px;">
+      <p class="section__eyebrow">Serviço editorial · Contemplatio</p>
+      <h2 class="section__title">Toda a cadeia do livro.</h2>
+      <p class="section__lead">A <strong>Contemplatio Editorial</strong> nasceu da necessidade de publicar obras importantes para a caminhada da rede Contemplatio, aliada à expertise no mercado editorial que já possuíamos. Hoje, além dos nossos títulos, ainda apoiamos pequenas editoras em sua inserção na Amazon.</p>
+
+      <div class="cadeia__diagram">
+        <div class="fase">
+          <p class="fase__num">01</p>
+          <h3 class="fase__nome">Conteúdo</h3>
+          <p class="fase__desc">Produção do texto, conceito do livro, organização do conteúdo, revisões (estilo e técnica).</p>
+        </div>
+        <div class="fase">
+          <p class="fase__num">02</p>
+          <h3 class="fase__nome">Publicação</h3>
+          <p class="fase__desc">Diagramação, capa, cadastros na Câmara Brasileira do Livro, gestão gráfica, adaptação para ebook ou audiolivro.</p>
+        </div>
+        <div class="fase">
+          <p class="fase__num">03</p>
+          <h3 class="fase__nome">Distribuição</h3>
+          <p class="fase__desc">Armazenagem, metadados, venda na Amazon, Mercado Livre e livrarias físicas.</p>
+        </div>
+        <div class="fase">
+          <p class="fase__num">04</p>
+          <h3 class="fase__nome">Divulgação</h3>
+          <p class="fase__desc">Campanha de pré-venda, lançamento e sustentação, influenciadores, material impresso e digital.</p>
+        </div>
+      </div>
+
+      <div class="cadeia__cta">
+        <a href="https://ethmos-gui.github.io/contemplatio-simulador/" target="_blank" rel="noopener">Simule seu pacote editorial →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SIMULADOR teaser ── -->
+  <section class="sim-teaser" id="simulador">
+    <div class="sim-teaser__inner">
+      <div>
+        <p class="section__eyebrow" style="color: var(--coral)">Simulador interativo</p>
+        <h2 class="sim-teaser__title">Monte seu pacote.<br><span>Veja o investimento.</span></h2>
+        <p class="sim-teaser__desc">Pacotes de publicação a partir de R$ 4.550. Customize tiragem, páginas e extras. Veja também o custo mensal de distribuição na Amazon e Mercado Livre.</p>
+        <a class="sim-teaser__cta" href="https://ethmos-gui.github.io/contemplatio-simulador/" target="_blank" rel="noopener">Acessar simulador →</a>
+      </div>
+      <div class="sim-teaser__visual">
+        <h4>Sua proposta</h4>
+        <div class="sim-teaser__line"><span>Pacote Árvore</span><span>R$ 14.700</span></div>
+        <div class="sim-teaser__line"><span>+ Audiolivro</span><span>R$ 4.500</span></div>
+        <div class="sim-teaser__line"><span>+ Tiragem 800 ex.</span><span>+ R$ 6.093</span></div>
+        <div class="sim-teaser__line"><span>Total</span><span>R$ 25.293</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFÓLIO EDITORIAL ── -->
+  <section id="editorial">
+    <p class="section__eyebrow">Portfólio editorial</p>
+    <h2 class="section__title">Projetos editoriais.</h2>
+    <p class="section__lead">Trabalhamos em todas as etapas — da concepção à distribuição — em parceria com autores e pequenas editoras.</p>
+
+    <div class="editorial-cat">
+      <h3 class="editorial-cat__titulo">01. Editoração <span>Capa, diagramação, ISBN, ebook</span></h3>
+      <div class="editorial-grid">
+        <div class="capa"><img src="img/editorial/01-nouwen-entrando.jpeg" alt="Henri Nouwen — Entrando em Contato"></div>
+        <div class="capa"><img src="img/editorial/02-resgate-feminino.png" alt="O Resgate do Feminino — Isabelle Ludovico"></div>
+        <div class="capa"><img src="img/editorial/03-amor-transborda.jpeg" alt="Amor que Transborda — Cally Magalhães"></div>
+        <div class="capa"><img src="img/editorial/04-passaro-ninho.png" alt="O Pássaro que Caiu do Ninho — Isabelle Ludovico"></div>
+        <div class="capa"><img src="img/editorial/05-esperanca.png" alt="Esperança nos Visitou — 10elo Capelania"></div>
+        <div class="capa"><img src="img/editorial/06-perola.png" alt="Pérola — Margarida Ferraz"></div>
+      </div>
+    </div>
+
+    <div class="editorial-cat">
+      <h3 class="editorial-cat__titulo">02. Tradução <span>Do inglês para o português</span></h3>
+      <div class="editorial-grid">
+        <div class="capa"><img src="img/editorial/07-manifesto-jesus.png" alt="Manifesto Jesus — Sweet & Viola"></div>
+        <div class="capa"><img src="img/editorial/08-raizes-integral.png" alt="Raízes de um Evangelho Integral"></div>
+        <div class="capa"><img src="img/editorial/09-caminhos-integral.png" alt="Caminhos de um Evangelho Integral"></div>
+        <div class="capa"><img src="img/editorial/01-nouwen-entrando.jpeg" alt="Entrando em Contato — Henri Nouwen"></div>
+      </div>
+    </div>
+
+    <div class="editorial-cat">
+      <h3 class="editorial-cat__titulo">03. Concepção e autoria <span>Da ideia à publicação</span></h3>
+      <div class="editorial-grid">
+        <div class="capa"><img src="img/editorial/10-biblia-semeador.png" alt="Bíblia do Semeador"></div>
+        <div class="capa"><img src="img/editorial/11-jornada-jesus.png" alt="Jornada com Jesus"></div>
+        <div class="capa"><img src="img/editorial/12-nao-envergonho.png" alt="Não Me Envergonho do Evangelho"></div>
+      </div>
+    </div>
+
+    <div class="editorial-cat">
+      <h3 class="editorial-cat__titulo">04. Revisão técnica <span>Verificação teológica e factual</span></h3>
+      <div class="editorial-grid">
+        <div class="capa"><img src="img/editorial/13-abraao.png" alt="Abraão — Anthony Julius"></div>
+        <div class="capa"><img src="img/editorial/14-biblia-sabedoria.png" alt="Bíblia: Sabedoria para um Mundo em Crise — Andrew Ollerton"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFÓLIO COMUNICAÇÃO ── -->
+  <section id="comunicacao">
+    <p class="section__eyebrow">Portfólio de comunicação</p>
+    <h2 class="section__title">Projetos de comunicação.</h2>
+    <p class="section__lead">Marca, site, redes sociais, eventos, materiais impressos e digitais — projetos completos para causas e empresas que queremos apoiar.</p>
+
+    <div class="comunicacao-grid">
+      <div class="projeto-card"><img src="img/comunicacao/01-contemplatio.png" alt="Contemplatio"></div>
+      <div class="projeto-card"><img src="img/comunicacao/02-aconchego.png" alt="Aconchego"></div>
+      <div class="projeto-card"><img src="img/comunicacao/03-cafe-aconchego.png" alt="Café Aconchego"></div>
+      <div class="projeto-card"><img src="img/comunicacao/04-aguia.png" alt="Associação Águia"></div>
+      <div class="projeto-card"><img src="img/comunicacao/05-casa-tecer.png" alt="Casa de Tecer Estórias"></div>
+      <div class="projeto-card"><img src="img/comunicacao/06-marcos-barreros.png" alt="Marcos Barreros"></div>
+      <div class="projeto-card"><img src="img/comunicacao/07-heads.png" alt="Clínica Heads"></div>
+    </div>
+  </section>
+
+  <!-- ── CONTATO ── -->
+  <section class="contato" id="contato">
+    <div class="contato__inner">
+      <h2 class="contato__title">Vamos<br>conversar?</h2>
+      <p class="contato__lead">Conte sua história, sua causa, seu projeto. Ajudamos a transformar isso em comunicação que ressoa.</p>
+      <div class="contato__grid">
+        <div>
+          <p class="contato__item__label">Base</p>
+          <p class="contato__item__value">Santana de Parnaíba<br>São Paulo</p>
+        </div>
+        <div>
+          <p class="contato__item__label">Email</p>
+          <p class="contato__item__value"><a href="mailto:convocacom@gmail.com">convocacom@gmail.com</a></p>
+        </div>
+        <div>
+          <p class="contato__item__label">WhatsApp</p>
+          <p class="contato__item__value"><a href="https://wa.me/5511267359290" target="_blank" rel="noopener">(11) 2673-5929</a></p>
+        </div>
+        <a class="contato__cta" href="https://wa.me/5511267359290?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Convoca%C3%A7%C3%A3o.%20Gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Vamos conversar!</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="rodape">
+    <img src="img/logo/convocacao.png" alt="Convocação">
+    <p class="rodape__brand">CONVOCAÇÃO <span>· projetos missionais</span></p>
+  </footer>
+
+</body>
+</html>
